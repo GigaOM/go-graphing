@@ -4,10 +4,13 @@ class GO_Graphing
 {
 	public function __construct()
 	{
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		$this->register_resources();
 	}//end __construct
 
-	public function admin_init()
+	/**
+	 * registers scripts and styles for d3 and rickshaw
+	 */
+	public function register_resources()
 	{
 		$script_config = apply_filters( 'go-config', array( 'version' => 1 ), 'go-script-version' );
 
@@ -27,26 +30,43 @@ class GO_Graphing
 		);
 
 		wp_register_script(
-			'rickshaw',
-			plugins_url( 'js/external/rickshaw/rickshaw.min.js', __FILE__ ),
+			'd3-layout',
+			plugins_url( 'js/external/d3.layout.min.js', __FILE__ ),
 			array( 'd3' ),
 			$script_config['version'],
 			TRUE
 		);
-	}//end admin_init
-}//end class
 
-/**
- * singleton for GO_Graphing
- */
-function go_graphing()
-{
-	global $go_graphing;
+		wp_register_script(
+			'rickshaw',
+			plugins_url( 'js/external/rickshaw/rickshaw.min.js', __FILE__ ),
+			array( 'd3-layout' ),
+			$script_config['version'],
+			TRUE
+		);
+	}//end register_resources
 
-	if ( ! $go_graphing )
+	/**
+	 * convert an array to a series that is consumable by d3
+	 *
+	 * @param array $data Array of key value pairs
+	 */
+	public function array_to_series( $data )
 	{
-		$go_graphing = new GO_Graphing;
-	}//end if
+		if ( ! is_array( $data ) )
+		{
+			return FALSE;
+		}//end if
 
-	return $go_graphing;
-}//end go_graphing
+		$output = array();
+		foreach ( $data as $key => $value )
+		{
+			$output[] = array(
+				'x' => $key,
+				'y' => $value,
+			);
+		}
+
+		return $output;
+	}//end array_to_series
+}//end class

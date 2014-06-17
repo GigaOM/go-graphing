@@ -8,6 +8,18 @@
  * Author URI: http://gigaom.com/
  */
 
-// include and activate the core components
-require_once __DIR__ . '/components/class-go-graphing.php';
-go_graphing();
+/**
+ * singleton for GO_Graphing
+ */
+function go_graphing()
+{
+	global $go_graphing;
+
+	if ( ! $go_graphing )
+	{
+		require_once __DIR__ . '/components/class-go-graphing.php';
+		$go_graphing = new GO_Graphing;
+	}//end if
+
+	return $go_graphing;
+}//end go_graphing
