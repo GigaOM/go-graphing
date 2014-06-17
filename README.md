@@ -52,16 +52,16 @@ Results in:
 ```
 array(
   array(
-	  x => 'New York',
-		y => 20
-	)
+    x => 'New York',
+    y => 20
+  ),
   array(
-	  x => 'Boston',
-		y => 5001
-	)
+    x => 'Boston',
+    y => 5001
+  ),
   array(
-	  x => 'Las Vegas',
-		y => 8008
-	)
+    x => 'Las Vegas',
+    y => 8008
+  )
 )
 ```
