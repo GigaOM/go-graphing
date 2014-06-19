@@ -21,10 +21,25 @@ class GO_Graphing
 			$script_config['version']
 		);
 
+		wp_register_style(
+			'd3-parsets',
+			plugins_url( 'js/external/d3-parsets/d3.parsets.css', __FILE__ ),
+			array(),
+			$script_config['version']
+		);
+
 		wp_register_script(
 			'd3',
 			plugins_url( 'js/external/d3.min.js', __FILE__ ),
 			array(),
+			$script_config['version'],
+			TRUE
+		);
+
+		wp_register_script(
+			'd3-parsets',
+			plugins_url( 'js/external/d3-parsets/d3.parsets.js', __FILE__ ),
+			array( 'd3' ),
 			$script_config['version'],
 			TRUE
 		);
