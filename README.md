@@ -5,7 +5,7 @@ Open Source graphing library plugin
 
 ## Libraries
 
-This plugin allows for the enqueuing of [d3](http://d3js.org/) and [Rickshaw](http://code.shutterstock.com/rickshaw/) for use in WordPress plugins and themes.
+This plugin allows for the enqueuing of [d3](http://d3js.org/), [d3 parsets](https://github.com/jasondavies/d3-parsets), and [Rickshaw](http://code.shutterstock.com/rickshaw/) for use in WordPress plugins and themes.
 
 ## Usage
 
@@ -13,8 +13,10 @@ This plugin allows for the enqueuing of [d3](http://d3js.org/) and [Rickshaw](ht
 Registering styles and scripts is done simply by calling the `go_graphing()` singleton.  The resources that get registered are as follows:
 
 * __d3__ (script)
+* __d3-parsets__ (script)
 * __d3-layout__ (script)
 * __rickshaw__ (script)
+* __d3-parsets__ (styles)
 * __rickshaw__ (styles)
 
 If you wish to use those libraries, simply set dependencies on your JS files:
