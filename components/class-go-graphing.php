@@ -14,23 +14,25 @@ class GO_Graphing
 	{
 		$script_config = apply_filters( 'go-config', array( 'version' => 1 ), 'go-script-version' );
 
+		$js_min = ( defined( 'GO_DEV' ) && GO_DEV ) ? 'lib' : 'min';
+
 		wp_register_style(
 			'rickshaw',
-			plugins_url( 'js/external/rickshaw/rickshaw.min.css', __FILE__ ),
+			plugins_url( 'js/' . $js_min . '/external/rickshaw/rickshaw.min.css', __FILE__ ),
 			array(),
 			$script_config['version']
 		);
 
 		wp_register_style(
 			'd3-parsets',
-			plugins_url( 'js/external/d3-parsets/d3.parsets.css', __FILE__ ),
+			plugins_url( 'js/' . $js_min . '/external/d3-parsets/d3.parsets.css', __FILE__ ),
 			array(),
 			$script_config['version']
 		);
 
 		wp_register_script(
 			'd3',
-			plugins_url( 'js/external/d3.min.js', __FILE__ ),
+			plugins_url( 'js/' . $js_min . '/external/d3.min.js', __FILE__ ),
 			array(),
 			$script_config['version'],
 			TRUE
@@ -38,7 +40,7 @@ class GO_Graphing
 
 		wp_register_script(
 			'd3-parsets',
-			plugins_url( 'js/external/d3-parsets/d3.parsets.js', __FILE__ ),
+			plugins_url( 'js/' . $js_min . '/external/d3-parsets/d3.parsets.js', __FILE__ ),
 			array( 'd3' ),
 			$script_config['version'],
 			TRUE
@@ -46,7 +48,7 @@ class GO_Graphing
 
 		wp_register_script(
 			'd3-layout',
-			plugins_url( 'js/external/d3.layout.min.js', __FILE__ ),
+			plugins_url( 'js/' . $js_min . '/external/d3.layout.min.js', __FILE__ ),
 			array( 'd3' ),
 			$script_config['version'],
 			TRUE
@@ -54,7 +56,7 @@ class GO_Graphing
 
 		wp_register_script(
 			'rickshaw',
-			plugins_url( 'js/external/rickshaw/rickshaw.min.js', __FILE__ ),
+			plugins_url( 'js/' . $js_min . '/external/rickshaw/rickshaw.min.js', __FILE__ ),
 			array( 'd3-layout' ),
 			$script_config['version'],
 			TRUE
