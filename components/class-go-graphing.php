@@ -18,14 +18,14 @@ class GO_Graphing
 
 		wp_register_style(
 			'rickshaw',
-			plugins_url( 'js/' . $js_min . '/external/rickshaw/rickshaw.min.css', __FILE__ ),
+			plugins_url( 'js/lib/external/rickshaw/rickshaw.min.css', __FILE__ ),
 			array(),
 			$script_config['version']
 		);
 
 		wp_register_style(
 			'd3-parsets',
-			plugins_url( 'js/' . $js_min . '/external/d3-parsets/d3.parsets.css', __FILE__ ),
+			plugins_url( 'js/lib/external/d3-parsets/d3.parsets.css', __FILE__ ),
 			array(),
 			$script_config['version']
 		);
