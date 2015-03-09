@@ -56,7 +56,7 @@ class GO_Graphing
 
 		wp_register_script(
 			'rickshaw',
-			plugins_url( 'js/' . $js_min . '/external/rickshaw/rickshaw.min.js', __FILE__ ),
+			plugins_url( 'js/' . $js_min . '/external/rickshaw/rickshaw.js', __FILE__ ),
 			array( 'd3-layout' ),
 			$script_config['version'],
 			TRUE
